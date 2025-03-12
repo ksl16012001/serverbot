@@ -36,16 +36,17 @@ def webhook():
         requests.post(f"{TELEGRAM_API_URL}/sendMessage", json={"chat_id": chat_id, "text": message})
 
     return jsonify({"status": "ok"}), 200
-@app.route('/get-user', methods=['POST'])
-def get_user():
+
+@app.route('/get-user-data', methods=['POST'])  # ⚠️ Đổi tên route này
+def get_user_data():
+    """Nhận dữ liệu người dùng từ WebApp"""
     user_data = request.json
     if not user_data:
         return jsonify({"error": "No user data received"}), 400
-    
     return jsonify(user_data), 200
 
 @app.route('/get-user/<chat_id>', methods=['GET'])
-def get_user(chat_id):
+def get_user_by_id(chat_id):  
     """API để lấy thông tin người dùng từ WebApp"""
     if int(chat_id) in user_info:
         return jsonify(user_info[int(chat_id)])
