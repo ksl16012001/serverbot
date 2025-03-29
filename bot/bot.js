@@ -1,13 +1,13 @@
 const { Telegraf, Markup } = require("telegraf");
 
-const BOT_TOKEN = "YOUR_BOT_TOKEN";
+const BOT_TOKEN = "6734079442:AAGevJ3NspUmkTN6JT027Tyc83MZtmYBwkE";
 const bot = new Telegraf(BOT_TOKEN);
 
 bot.start((ctx) => {
     ctx.reply(
         "Nhấn vào nút bên dưới để mở WebApp:",
         Markup.keyboard([
-            Markup.button.webApp("Mở WebApp", "https://your-webapp.com")
+            Markup.button.webApp("Mở WebApp", "https://telegram-web-app-vuio.onrender.com/")
         ])
     );
 });
